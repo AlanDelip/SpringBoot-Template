@@ -1,0 +1,16 @@
+/eclipse
+tmp
+precompiled
+/conf/application.conf
+test-result
+.classpath
+*.launch
+*.classpath
+*.DS_Store
+**.iml
+**.ipr
+**.iws
+**.log
+/log/
+.idea/
+**target/

@@ -1,0 +1,27 @@
+spring.profiles.active: dev
+
+# 综合配置
+spring:
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+
+    # Show or not log for each sql query
+    jpa:
+        show-sql: true
+        properties:
+          hibernate:
+            hbm2ddl:
+              auto: update
+---
+# 开发环境
+spring:
+    profiles: dev
+    datasource:
+        url: jdbc:mysql://localhost:3306/sample
+        username: root
+        password:
+
+server:
+    port: 8080
+
+spring.jpa.show-sql: false
