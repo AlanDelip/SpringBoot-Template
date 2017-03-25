@@ -8,6 +8,8 @@ import cn.alandelip.web.logic.SampleLogic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @author Alan on 2017/3/14
  */
@@ -42,4 +44,24 @@ public class SampleCtrl {
         return sampleLogic.save(name, detail);
     }
 
+    @RequestMapping(value = "/point", method = RequestMethod.POST)
+    public Response savePoints(@RequestParam(name = "x") List<Double> x,
+                               @RequestParam(name = "y") List<Double> y) {
+        return sampleLogic.savePoints(x, y);
+    }
+
+    @RequestMapping(value = "/point", method = RequestMethod.GET)
+    public Response getPoints() {
+        return sampleLogic.getPoints();
+    }
+
+    @RequestMapping(value = "/route", method = RequestMethod.POST)
+    public Response saveRoute(@RequestParam(name = "route") String routeList) {
+        return sampleLogic.saveRoute(routeList);
+    }
+
+    @RequestMapping(value = "/route", method = RequestMethod.GET)
+    public Response getRoute() {
+        return sampleLogic.getRoute();
+    }
 }

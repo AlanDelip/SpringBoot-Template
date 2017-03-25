@@ -12,6 +12,10 @@ spring:
           hibernate:
             hbm2ddl:
               auto: update
+
+#    devtools:
+#        restart:
+#            additional-paths: src\\main\\java\\cn\\alandelip
 ---
 # 开发环境
 spring:
