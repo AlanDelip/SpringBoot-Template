@@ -18,7 +18,7 @@ public class SampleCtrl {
 	public SampleCtrl(SampleLogic sampleLogic) {
 		this.sampleLogic = sampleLogic;
 	}
-	
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String hello(@RequestParam(name = "name", defaultValue = "SpringBoot") String name) {
 		return "Hello, " + name + "!";

@@ -9,5 +9,5 @@ import cn.alandelip.web.data.SampleVO;
 public interface SampleLogic {
 	Response<SampleVO> getSampleData(long id);
 
-	Response save(String name, String detail);
+	Response<Boolean> save(String name, String detail);
 }

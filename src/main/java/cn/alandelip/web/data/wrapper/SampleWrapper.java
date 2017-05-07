@@ -16,13 +16,13 @@ public class SampleWrapper {
 			SampleVO sampleVO = new SampleVO();
 			sampleVO.setId(sampleData.getId());
 			sampleVO.setName(sampleData.getName());
-			return new Response<SampleVO>()
+			return new Response<SampleVO>().getBuilder()
 					.succ()
-					.data(sampleVO);
+					.data(sampleVO)
+					.build();
 		} else {
-			return new Response<SampleVO>()
-					.fail()
-					.code(ErrorCode.NOT_FOUND);
+			return new Response<SampleVO>().getBuilder()
+					.failBuild(ErrorCode.NOT_FOUND);
 		}
 	}
 }

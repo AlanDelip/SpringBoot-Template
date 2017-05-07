@@ -32,7 +32,7 @@ public class SampleLogicImpl implements SampleLogic {
 	}
 
 	@Override
-	public Response save(String name, String detail) {
+	public Response<Boolean> save(String name, String detail) {
 		if (sampleService.save(name, detail)) {
 			return Response.success();
 		} else {
