@@ -7,7 +7,7 @@ import cn.alandelip.web.data.SampleVO;
  * @author Alan on 2017/3/14
  */
 public interface SampleLogic {
-	Response<SampleVO> getSampleData(long id);
+	String getSampleData(long id);
 
-	Response<Boolean> save(String name, String detail);
+	String save(String name, String detail);
 }

@@ -1,5 +1,9 @@
 package cn.alandelip.web.data;
 
+import com.google.gson.Gson;
+
+import java.io.Serializable;
+
 /**
  * <b>返回统一格式</b><br>
  * {<br>
@@ -34,7 +38,7 @@ public class Response<T> {
 	 * @param errorCode 错误码
 	 * @return Response
 	 */
-	public static Response<Boolean> fail(String errorCode) {
+	public static String fail(String errorCode) {
 		return new Response<Boolean>().getBuilder().failBuild(errorCode);
 	}
 
@@ -43,7 +47,7 @@ public class Response<T> {
 	 *
 	 * @return Response
 	 */
-	public static Response<Boolean> success() {
+	public static String success() {
 		return new Response<Boolean>().getBuilder().succ().build();
 	}
 
@@ -51,12 +55,12 @@ public class Response<T> {
 		return new Builder();
 	}
 
-	public class Builder {
-		public Response<T> failBuild(String msg) {
+	public class Builder implements Serializable {
+		public String failBuild(String msg) {
 			status("fail");
 			message(msg);
 			data(null);
-			return Response.this;
+			return new Gson().toJson(Response.this);
 		}
 
 		public Builder succ() {
@@ -84,8 +88,8 @@ public class Response<T> {
 			return this;
 		}
 
-		public Response<T> build() {
-			return Response.this;
+		public String build() {
+			return new Gson().toJson(Response.this);
 		}
 	}
 }

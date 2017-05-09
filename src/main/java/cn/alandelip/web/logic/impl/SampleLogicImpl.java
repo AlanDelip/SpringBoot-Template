@@ -4,7 +4,6 @@ import cn.alandelip.constants.ErrorCode;
 import cn.alandelip.model.SampleData;
 import cn.alandelip.service.SampleService;
 import cn.alandelip.web.data.Response;
-import cn.alandelip.web.data.SampleVO;
 import cn.alandelip.web.data.wrapper.SampleWrapper;
 import cn.alandelip.web.logic.SampleLogic;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +25,13 @@ public class SampleLogicImpl implements SampleLogic {
 	}
 
 	@Override
-	public Response<SampleVO> getSampleData(long id) {
+	public String getSampleData(long id) {
 		SampleData sampleData = sampleService.getSample(id);
 		return sampleWrapper.wrap(sampleData);
 	}
 
 	@Override
-	public Response<Boolean> save(String name, String detail) {
+	public String save(String name, String detail) {
 		if (sampleService.save(name, detail)) {
 			return Response.success();
 		} else {

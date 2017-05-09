@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SampleWrapper {
-	public Response<SampleVO> wrap(SampleData sampleData) {
+	public String wrap(SampleData sampleData) {
 		if (sampleData != null) {
 			SampleVO sampleVO = new SampleVO();
 			sampleVO.setId(sampleData.getId());
