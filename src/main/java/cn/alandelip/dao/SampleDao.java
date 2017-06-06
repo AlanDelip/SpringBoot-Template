@@ -9,10 +9,10 @@ import org.springframework.data.repository.query.Param;
  * @author Alan on 2017/3/14
  */
 public interface SampleDao extends JpaRepository<SampleData, Long> {
-    SampleData findByName(String name);
+	SampleData findByName(String name);
 
-    SampleData findByNameAndDetail(String name, String detail);
+	SampleData findByNameAndDetail(String name, String detail);
 
-    @Query("from SampleData s where s.name=:name")
-    SampleData findSample(@Param("name") String name);
+	@Query("from SampleData s where s.name=:name")
+	SampleData findSample(@Param("name") String name);
 }

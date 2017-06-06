@@ -12,10 +12,18 @@ spring:
           hibernate:
             hbm2ddl:
               auto: update
-
 #    devtools:
 #        restart:
 #            additional-paths: src\\main\\java\\cn\\alandelip
+
+# Swagger配置
+swagger:
+    title: 测试 HTTP API
+    api-version: 1.0.0
+    description: This is to show http api description from mooctest.net
+    license: Apache 2.0
+    license-url: http://www.apache.org/licenses/LICENSE-2.0.html
+
 ---
 # 开发环境
 spring:
@@ -29,3 +37,4 @@ server:
     port: 8080
 
 spring.jpa.show-sql: false
+springfox.documentation.swagger.v2.path: /api-docs

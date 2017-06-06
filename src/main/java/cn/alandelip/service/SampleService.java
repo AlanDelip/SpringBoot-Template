@@ -9,4 +9,8 @@ public interface SampleService {
 	SampleData getSample(long id);
 
 	Boolean save(String name, String detail);
+
+	Boolean put(long id, String name, String detail);
+
+	Boolean delete(long id);
 }

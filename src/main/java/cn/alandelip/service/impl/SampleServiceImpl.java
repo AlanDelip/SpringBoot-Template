@@ -32,4 +32,22 @@ public class SampleServiceImpl implements SampleService {
 		return sampleDao.save(sampleData) != null;
 
 	}
+
+	@Override
+	public Boolean put(long id, String name, String detail) {
+		SampleData sampleData = sampleDao.findOne(id);
+		if (sampleData != null) {
+			sampleData.setName(name);
+			sampleData.setDetail(detail);
+			return sampleDao.save(sampleData) != null;
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public Boolean delete(long id) {
+		sampleDao.delete(id);
+		return true;
+	}
 }
