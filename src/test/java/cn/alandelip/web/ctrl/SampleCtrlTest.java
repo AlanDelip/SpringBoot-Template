@@ -1,6 +1,8 @@
 package cn.alandelip.web.ctrl;
 
+import cn.alandelip.web.data.SampleVO;
 import cn.alandelip.web.logic.SampleLogic;
+import com.google.gson.Gson;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,12 +10,13 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.mockito.MockitoAnnotations.initMocks;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
@@ -42,6 +45,31 @@ public class SampleCtrlTest {
 	public void testGetSample() throws Exception {
 		mockMvc.perform(
 				get(SAMPLE_MAPPING + "/1"))
+				.andExpect(status().isOk());
+	}
+
+	@Test
+	public void testPostSample() throws Exception {
+		mockMvc.perform(
+				post(SAMPLE_MAPPING)
+						.contentType(MediaType.APPLICATION_JSON)
+						.content(new Gson().toJson(new SampleVO())))
+				.andExpect(status().isOk());
+	}
+
+	@Test
+	public void testPutSample() throws Exception {
+		mockMvc.perform(
+				put(SAMPLE_MAPPING)
+						.contentType(MediaType.APPLICATION_JSON)
+						.content(new Gson().toJson(new SampleVO())))
+				.andExpect(status().isOk());
+	}
+
+	@Test
+	public void testDeleteSample() throws Exception {
+		mockMvc.perform(
+				delete(SAMPLE_MAPPING + "/1"))
 				.andExpect(status().isOk());
 	}
 }

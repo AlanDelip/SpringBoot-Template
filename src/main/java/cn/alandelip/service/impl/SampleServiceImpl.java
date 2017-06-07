@@ -30,7 +30,6 @@ public class SampleServiceImpl implements SampleService {
 		sampleData.setName(name);
 		sampleData.setDetail(detail);
 		return sampleDao.save(sampleData) != null;
-
 	}
 
 	@Override
