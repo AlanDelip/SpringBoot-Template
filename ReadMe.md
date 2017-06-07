@@ -1,49 +1,30 @@
-# SpringBoot Template
-基于以下框架搭建的后端模版
-- SpringBoot
-- Mysql
-- Mockito
-- Swagger2
-- Sonar
+# SpringBoot Template <img style="float:right;width:100px;padding-top:35px" src="https://img.shields.io/npm/l/vux.svg?style=flat-square" alt="">
+> 在ise实验室工作了8个月，一直想整理一套理想的后端即clone即用的模版。这套SpringBoot的模版也在不断的完善当中，从初始的简单框架逐渐加入了更多的管理和运维工具。
 
-特性
+## Dependencies
+- [【Server】SpringBoot](http://projects.spring.io/spring-boot/)
+- [【Database】Mysql](https://www.mysql.com/)
+- [【Testing】Mockito](http://site.mockito.org/)
+- [【API Management】Swagger2](http://swagger.io/)
+- [【Code Quality】Sonar](https://www.sonarqube.org/)
+
+## Features
 1. 请求接收，逻辑转发，对象映射，hibernate数据读写等主流功能
 1. 微服务标准分包结构
 1. 具体的使用样例，以示例代码的形式展示
 1. 详细的单元测试，接口测试
 1. Swagger2 HTTP API管理
+![swagger](http://mooctest.oss-cn-shanghai.aliyuncs.com/resources/springboot-tmpl/swagger.png)
+
 1. Sonar代码质量监测
+![sonar management](http://mooctest.oss-cn-shanghai.aliyuncs.com/resources/springboot-tmpl/sonar-management.png)
+![sonar map](http://mooctest.oss-cn-shanghai.aliyuncs.com/resources/springboot-tmpl/sonar-map.png)
 
->使用前配置
->* 建sample数据库，或者在resources/application.yaml文件中修改数据库名称以及登录用户名和密码
->* 下载Sonar本地服务器，由于是依赖Maven进行Sonar质量检测，请在./m2/settings.xml中进行Sonar的相关配置
+## Configurations
+- 创建sample数据库，或者在resources/application.yaml文件中修改数据库名称以及登录用户名和密码
+- 下载Sonar本地服务器，由于是依赖Maven进行Sonar质量检测，请在./m2/settings.xml中进行Sonar的相关配置
 
-<br>
-
-下面是各个模块的主要功能介绍
-## web
-负责网络部分的处理<br>
-1. ctrl包<br>
-负责接收和返回请求
-1. logic包<br>
-主要负责service层交互，不涉及数据读写的逻辑处理
-1. data包<br>
-规定展示数据格式，其中的wrapper进行纯数据包装，不涉及逻辑
-
-## service
-主要负责与logic层和dao交互，处理IO相关的处理
-
-## model
-数据模型，利用JPA（Hibernate）实现ORM
-
-## dao
-数据读写，利用JPA进行读写操作
-
-## constants
-常量
-
-## configure
-过滤器
-
-## <span style="color:green">test</span>
-各个包内的测试代码
+## Keep In Touch
+- 欢迎clone/fork/star!
+- 欢迎在issue中讨论
+- 欢迎访问个人网站www.alandelip.cn
