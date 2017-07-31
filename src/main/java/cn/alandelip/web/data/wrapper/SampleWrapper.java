@@ -2,6 +2,8 @@ package cn.alandelip.web.data.wrapper;
 
 import cn.alandelip.model.SampleData;
 import cn.alandelip.web.data.SampleVO;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,9 +14,7 @@ public class SampleWrapper {
 	public SampleVO wrap(SampleData sampleData) {
 		if (sampleData != null) {
 			SampleVO sampleVO = new SampleVO();
-			sampleVO.setId(sampleData.getId());
-			sampleVO.setName(sampleData.getName());
-			sampleVO.setDetail(sampleData.getDetail());
+			BeanUtils.copyProperties(sampleData, sampleVO);
 			return sampleVO;
 		} else {
 			return null;

@@ -3,6 +3,8 @@ package cn.alandelip.web.logic;
 import cn.alandelip.web.data.OperationStatus;
 import cn.alandelip.web.data.SampleVO;
 
+import java.util.List;
+
 /**
  * @author Alan on 2017/3/14
  */
@@ -14,4 +16,6 @@ public interface SampleLogic {
 	OperationStatus put(long id, String name, String detail);
 
 	OperationStatus delete(long id);
+
+	List<SampleVO> getSamples();
 }

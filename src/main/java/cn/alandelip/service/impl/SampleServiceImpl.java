@@ -6,6 +6,8 @@ import cn.alandelip.service.SampleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author Alan on 2017/3/14
  */
@@ -48,5 +50,10 @@ public class SampleServiceImpl implements SampleService {
 	public Boolean delete(long id) {
 		sampleDao.delete(id);
 		return true;
+	}
+
+	@Override
+	public List<SampleData> getSamples() {
+		return null;
 	}
 }
