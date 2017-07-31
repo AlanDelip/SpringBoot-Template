@@ -18,6 +18,7 @@ import java.util.List;
 @RequestMapping(value = "sample")
 @RestController
 public class SampleCtrl extends BaseController {
+
 	private SampleLogic sampleLogic;
 
 	@Autowired
