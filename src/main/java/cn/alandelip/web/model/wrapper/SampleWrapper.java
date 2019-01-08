@@ -1,6 +1,7 @@
 package cn.alandelip.web.model.wrapper;
 
 import cn.alandelip.entity.SampleData;
+import cn.alandelip.exception.TransformException;
 import cn.alandelip.web.model.SampleVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,17 @@ public class SampleWrapper {
 			BeanUtils.copyProperties(sampleData, sampleVO);
 			return sampleVO;
 		} else {
-			return null;
+			throw new TransformException("wrap fails");
+		}
+	}
+
+	public SampleData unwrap(SampleVO sampleVO) {
+		if (sampleVO != null) {
+			SampleData sampleData = new SampleData();
+			BeanUtils.copyProperties(sampleVO, sampleData);
+			return sampleData;
+		} else {
+			throw new TransformException("unwrap fails");
 		}
 	}
 }

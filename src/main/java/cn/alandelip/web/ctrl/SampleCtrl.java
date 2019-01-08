@@ -69,6 +69,6 @@ public class SampleCtrl {
 	})
 	@RequestMapping(method = RequestMethod.PUT)
 	public void putSampleData(@RequestBody SampleVO sampleVO) {
-		sampleLogic.put(sampleVO.getId(), sampleVO.getName(), sampleVO.getDetail());
+		sampleLogic.put(sampleVO);
 	}
 }

@@ -40,13 +40,9 @@ public class SampleServiceImpl implements SampleService {
 	@Override
 	public Boolean put(long id, String name, String detail) {
 		SampleData sampleData = sampleDao.getOne(id);
-		if (sampleData != null) {
-			sampleData.setName(name);
-			sampleData.setDetail(detail);
-			return sampleDao.save(sampleData) != null;
-		} else {
-			return false;
-		}
+		sampleData.setName(name);
+		sampleData.setDetail(detail);
+		return sampleDao.save(sampleData) != null;
 	}
 
 	@Override

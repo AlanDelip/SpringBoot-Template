@@ -9,6 +9,7 @@ while getopts "p:" OPT; do
     esac
 done
 
+mvn clean
 mvn package
 
 ##deploy

@@ -12,6 +12,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.stub;
@@ -38,14 +41,21 @@ public class SampleServiceTest {
 
 	@Test
 	public void testGetSample() {
+		//list samples
+		SampleData sampleData = new SampleData();
+		sampleData.setId(2);
+		List<SampleData> samples = new ArrayList<>();
+		samples.add(sampleData);
+		when(sampleDao.findAll()).thenReturn(samples);
+		assertEquals(samples, sampleService.getSamples());
+
 		//sample not found
 		when(sampleDao.getOne(Long.valueOf("1")))
 				.thenReturn(null);
 		assertNull(sampleService.getSample(1));
 
-		//sample not found
-		SampleData sampleData = new SampleData();
-		sampleData.setId(1);
+		//sample is found
+
 		when(sampleDao.getOne(Long.valueOf("2")))
 				.thenReturn(sampleData);
 		assertEquals(sampleData.getId(), sampleService.getSample(2).getId());
@@ -67,19 +77,26 @@ public class SampleServiceTest {
 		//sample not found
 		assertFalse(sampleService.put(1, "fail", "fail"));
 
-		//modify fail
-		SampleData failData = new SampleData();
-		when(sampleDao.getOne(Long.valueOf("2")))
-				.thenReturn(failData);
-		assertFalse(sampleService.put(2, "fail", "fail"));
-
-		//modify success
+		//sample is found
 		SampleData successData = new SampleData();
-		when(sampleDao.getOne(Long.valueOf("3")))
+		when(sampleDao.getOne(Long.valueOf("2")))
 				.thenReturn(successData);
 		when(sampleDao.save(successData))
 				.thenReturn(new SampleData());
-		assertTrue(sampleService.put(3, "success", "success"));
+		assertTrue(sampleService.put(2, "success", "success"));
+
+		//modify fail
+		SampleData failData = new SampleData();
+		when(sampleDao.getOne(Long.valueOf("3")))
+				.thenReturn(failData);
+		assertFalse(sampleService.put(3, "fail", "fail"));
+
+		//modify success
+		when(sampleDao.getOne(Long.valueOf("4")))
+				.thenReturn(successData);
+		when(sampleDao.save(successData))
+				.thenReturn(new SampleData());
+		assertTrue(sampleService.put(4, "success", "success"));
 	}
 
 	@Test

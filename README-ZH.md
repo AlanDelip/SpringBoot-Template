@@ -36,7 +36,7 @@
 - 具体的使用样例，以示例代码的形式展示
 - 详细的单元测试，接口测试，集成测试
 - Swagger2 HTTP API管理（默认启动服务器后在8080端口的/swagger-ui.html访问）
-![swagger](http://mooctest.oss-cn-shanghai.aliyuncs.com/resources/springboot-tmpl/swagger.png)
+![swagger](https://c1.staticflickr.com/5/4915/31726275207_42bb23af9c_h.jpg)
 
 - Sonar代码质量监测（默认启动Sonar本地服务器后在9000端口访问）
 ![sonar management](http://mooctest.oss-cn-shanghai.aliyuncs.com/resources/springboot-tmpl/sonar-management.png)
@@ -44,6 +44,7 @@
 ## 配置
 > *为必须配置，其余可选
 - \* 创建*sample*数据库，或者在*resources/application.yaml*文件中修改数据库名称以及登录用户名和密码
+- \* 如果你在使用IntelliJ或者Eclipse等IDE的话，需要安装Lombok插件来保证 *@Data* 以及相关标注的运行
 - 下载Sonar本地服务器，由于是依赖Maven进行Sonar质量检测，请在*./m2/settings.xml*中进行Sonar的相关配置（如不使用Sonar可不进行配置）。在tool文件夹内有编写好的shell脚本帮助运行sonar指令。更多的Sonar配置请访问[Sonar官网](https://www.sonarqube.org/)
 - 在相关标注的说明下Swagger会自动生成HTTP API的网页，对于Swagger的默认配置在*configure/SwagConfig.java*中（不进行配置也可使用Swagger的特性）。
 运行服务器后默认在*localhost:8080/swagger-ui.html*会有API的界面。更多配置选项请关注[Swagger官网](http://swagger.io/)

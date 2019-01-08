@@ -12,7 +12,7 @@ public interface SampleLogic {
 
 	void save(String name, String detail);
 
-	void put(long id, String name, String detail);
+	void put(SampleVO sampleVO);
 
 	void delete(long id);
 

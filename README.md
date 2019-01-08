@@ -47,7 +47,7 @@ management and authentication features.
 - unit testing, interface testing, and integration testing
 
 - Swagger2 HTTP API management(can be accessed at localhost:8080/swagger-ui.html in default)
-![swagger](http://mooctest.oss-cn-shanghai.aliyuncs.com/resources/springboot-tmpl/swagger.png)
+![swagger](https://c1.staticflickr.com/5/4915/31726275207_42bb23af9c_h.jpg)
 
 - code quality with SonarQube(can be accessed at localhost:9000 in default)
 ![sonar management](http://mooctest.oss-cn-shanghai.aliyuncs.com/resources/springboot-tmpl/sonar-management.png)
@@ -56,6 +56,8 @@ management and authentication features.
 > *marks for compulsory configurations, and the others are optional
 
 - \* create database *sample*, and modify username and password in *resources/application.yaml*
+
+- \* if you're using IDE like Eclipse and IntelliJ, lombok plugin is needed for *@Data* and related annotations
 
 - download Sonar local server. Please configure maven setting in *./m2/settings.xml* for Sonar because it's based 
 on it. Also, there's a shell script helping run sonar operations in *tool* directory. 

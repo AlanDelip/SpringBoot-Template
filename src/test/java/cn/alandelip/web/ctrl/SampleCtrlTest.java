@@ -49,6 +49,13 @@ public class SampleCtrlTest {
 	}
 
 	@Test
+	public void testGetSamples() throws Exception {
+		mockMvc.perform(
+				get(SAMPLE_MAPPING))
+				.andExpect(status().isOk());
+	}
+
+	@Test
 	public void testPostSample() throws Exception {
 		mockMvc.perform(
 				post(SAMPLE_MAPPING)

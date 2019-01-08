@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Alan on 2017/3/14
@@ -48,11 +49,12 @@ public class SampleLogicImpl implements SampleLogic {
 	}
 
 	@Override
-	public void put(long id, String name, String detail) {
-		if (getSampleData(id) == null) {
+	public void put(SampleVO sampleVO) {
+		SampleData sampleData = sampleWrapper.unwrap(sampleVO);
+		if (getSampleData(sampleData.getId()) == null) {
 			throw new NotFoundException("sample not exist");
 		}
-		if (!sampleService.put(id, name, detail)) {
+		if (!sampleService.put(sampleData.getId(), sampleData.getName(), sampleData.getDetail())) {
 			throw new InternalServerException("modify fails");
 		}
 	}
@@ -69,6 +71,8 @@ public class SampleLogicImpl implements SampleLogic {
 
 	@Override
 	public List<SampleVO> getSamples() {
-		return null;
+		return sampleService.getSamples().stream()
+				.map(sampleWrapper::wrap)
+				.collect(Collectors.toList());
 	}
 }

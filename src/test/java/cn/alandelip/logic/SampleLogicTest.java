@@ -7,6 +7,7 @@ import cn.alandelip.web.model.SampleVO;
 import cn.alandelip.web.model.wrapper.SampleWrapper;
 import cn.alandelip.exception.NotFoundException;
 import cn.alandelip.logic.impl.SampleLogicImpl;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,6 +16,9 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.web.WebAppConfiguration;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
@@ -44,6 +48,21 @@ public class SampleLogicTest {
 
 	@Test
 	public void testGetSampleData() {
+		//list entities
+		SampleData sampleData = new SampleData();
+		sampleData.setId(1);
+		List<SampleData> samples = new ArrayList<>();
+		samples.add(sampleData);
+		when(sampleService.getSamples()).thenReturn(samples);
+
+		SampleVO sampleVO = new SampleVO();
+		sampleVO.setId(1);
+		when(sampleWrapper.wrap(sampleData)).thenReturn(sampleVO);
+		List<SampleVO> sampleVOs = new ArrayList<>();
+		sampleVOs.add(sampleVO);
+
+		assertEquals(sampleVOs, sampleLogic.getSamples());
+
 		//no entity is found
 		when(sampleService.getSample(1))
 				.thenReturn(null);
@@ -54,11 +73,8 @@ public class SampleLogicTest {
 		}
 
 		//entity found
-		SampleData sampleData = new SampleData();
-		sampleData.setId(2);
 		when(sampleService.getSample(2))
 				.thenReturn(sampleData);
-		SampleVO sampleVO = new SampleVO();
 		sampleVO.setId(sampleData.getId());
 		when(sampleWrapper.wrap(sampleData))
 				.thenReturn(sampleVO);
@@ -77,27 +93,68 @@ public class SampleLogicTest {
 		} catch (InternalServerException e) {
 			assertEquals("save fails", e.getMessage());
 		}
+
+		//save success
+		when(sampleService.save("success", "success"))
+				.thenReturn(true);
+		try {
+			sampleLogic.save("success", "success");
+		} catch (InternalServerException e) {
+			Assert.fail("shouldn't contain exception");
+		}
 	}
 
 	@Test
 	public void testPut() {
+		SampleVO sampleVO = new SampleVO();
+		sampleVO.setId(1);
+
 		//no sample is found
 		when(sampleService.getSample(1))
 				.thenReturn(null);
+		when(sampleWrapper.unwrap(sampleVO))
+				.thenReturn(new SampleData());
 		try {
-			sampleLogic.put(1, "fail", "fail");
+			sampleLogic.put(sampleVO);
 		} catch (NotFoundException e) {
 			assertEquals("sample not found", e.getMessage());
 		}
 
-		//modify fails
-		when(sampleService.put(2, "fail", "fail"))
-				.thenReturn(false);
+		//sample is found
+		SampleData sampleData = new SampleData();
+		sampleData.setId(2);
+		when(sampleWrapper.unwrap(sampleVO))
+				.thenReturn(sampleData);
+		when(sampleService.put(2, null, null))
+				.thenReturn(true);
+		sampleVO.setId(2);
 		mockGetSample(2);
 		try {
-			sampleLogic.put(2, "fail", "fail");
+			sampleLogic.put(sampleVO);
+		} catch (NotFoundException e) {
+			Assert.fail("shouldn't contain exception");
+		}
+
+		//modify fails
+		when(sampleService.put(3, "fail", "fail"))
+				.thenReturn(false);
+		sampleVO.setId(3);
+		mockGetSample(3);
+		try {
+			sampleLogic.put(sampleVO);
 		} catch (InternalServerException e) {
 			assertEquals("modify fails", e.getMessage());
+		}
+
+		//modify success
+		when(sampleService.put(4, "success", "success"))
+				.thenReturn(true);
+		sampleVO.setId(4);
+		mockGetSample(4);
+		try {
+			sampleLogic.put(sampleVO);
+		} catch (InternalServerException e) {
+			Assert.fail("shouldn't contain exception");
 		}
 	}
 
@@ -112,6 +169,15 @@ public class SampleLogicTest {
 			assertEquals("sample not found", e.getMessage());
 		}
 
+		//sample is found
+		when(sampleService.delete(2)).thenReturn(true);
+		mockGetSample(2);
+		try {
+			sampleLogic.delete(2);
+		} catch (NotFoundException e) {
+			Assert.fail("shouldn't contain exception");
+		}
+
 		//delete fails
 		when(sampleService.delete(2))
 				.thenReturn(false);
@@ -120,6 +186,15 @@ public class SampleLogicTest {
 			sampleLogic.delete(2);
 		} catch (InternalServerException e) {
 			assertEquals("delete fails", e.getMessage());
+		}
+
+		//delete success
+		when(sampleService.delete(4)).thenReturn(true);
+		mockGetSample(4);
+		try {
+			sampleLogic.delete(4);
+		} catch (NotFoundException e) {
+			Assert.fail("shouldn't contain exception");
 		}
 	}
 
