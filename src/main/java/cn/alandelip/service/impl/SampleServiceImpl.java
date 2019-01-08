@@ -1,8 +1,9 @@
 package cn.alandelip.service.impl;
 
-import cn.alandelip.dao.SampleDao;
-import cn.alandelip.model.SampleData;
+import cn.alandelip.entity.SampleData;
+import cn.alandelip.repository.SampleDao;
 import cn.alandelip.service.SampleService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @author Alan on 2017/3/14
  */
 @Service
+@Log4j2
 public class SampleServiceImpl implements SampleService {
 
 	private SampleDao sampleDao;
@@ -23,7 +25,7 @@ public class SampleServiceImpl implements SampleService {
 
 	@Override
 	public SampleData getSample(long id) {
-		return sampleDao.findOne(id);
+		return sampleDao.findById(id).orElse(null);
 	}
 
 	@Override
@@ -36,7 +38,7 @@ public class SampleServiceImpl implements SampleService {
 
 	@Override
 	public Boolean put(long id, String name, String detail) {
-		SampleData sampleData = sampleDao.findOne(id);
+		SampleData sampleData = sampleDao.findById(id).orElse(null);
 		if (sampleData != null) {
 			sampleData.setName(name);
 			sampleData.setDetail(detail);
@@ -48,12 +50,12 @@ public class SampleServiceImpl implements SampleService {
 
 	@Override
 	public Boolean delete(long id) {
-		sampleDao.delete(id);
+		sampleDao.deleteById(id);
 		return true;
 	}
 
 	@Override
 	public List<SampleData> getSamples() {
-		return null;
+		return sampleDao.findAll();
 	}
 }

@@ -1,4 +1,4 @@
-package cn.alandelip.web.exception;
+package cn.alandelip.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

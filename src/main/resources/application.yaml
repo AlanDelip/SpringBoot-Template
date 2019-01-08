@@ -1,40 +1,59 @@
+# default active profile, see more in tool/start.sh
 spring.profiles.active: dev
 
-# 综合配置
+# general configuration
 spring:
-    datasource:
-        driver-class-name: com.mysql.jdbc.Driver
+  datasource:
+    driver-class-name:  com.mysql.cj.jdbc.Driver
 
-    # Show or not log for each sql query
-    jpa:
-        show-sql: true
-        properties:
-          hibernate:
-            hbm2ddl:
-              auto: update
+  # Show or not log for each sql query
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
 #    devtools:
 #        restart:
 #            additional-paths: src\\main\\java\\cn\\alandelip
 
-# Swagger配置
+# swagger configuration
 swagger:
-    title: HTTP API for SpringBoot Template
-    api-version: 1.0.0
-    description: This is to show http api description
-    license: Apache 2.0
-    license-url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: HTTP API for SpringBoot Template
+  api-version: 1.0.0
+  description: This is the description for REST API
+  license: MIT
+  license-url: https://opensource.org/licenses/MIT
+  contact:
+    name: Alan, Zhufeng Xu
+    homepage: https://www.alan-zhufengxu.com
+    email: alan.xuzhufeng@gmail.com
+
 
 ---
-# 开发环境
 spring:
-    profiles: dev
-    datasource:
-        url: jdbc:mysql://localhost:3306/sample
-        username: root
-        password: root
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/sample?useSSL=false
+    username: local
+    password: local
 
 server:
-    port: 8080
+  port: 8080
+
+spring.jpa.show-sql: true
+springfox.documentation.swagger.v2.path: /api-docs
+
+---
+spring:
+  profiles: deploy
+  datasource:
+    url: jdbc:mysql://localhost:3306/sample
+    username: online
+    password: online
+
+server:
+  port: 8080
 
 spring.jpa.show-sql: false
 springfox.documentation.swagger.v2.path: /api-docs

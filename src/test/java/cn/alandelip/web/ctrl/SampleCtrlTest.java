@@ -1,7 +1,7 @@
 package cn.alandelip.web.ctrl;
 
-import cn.alandelip.web.data.SampleVO;
-import cn.alandelip.web.logic.SampleLogic;
+import cn.alandelip.web.model.SampleVO;
+import cn.alandelip.logic.SampleLogic;
 import com.google.gson.Gson;
 import org.junit.Before;
 import org.junit.Test;

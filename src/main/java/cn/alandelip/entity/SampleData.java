@@ -1,4 +1,4 @@
-package cn.alandelip.model;
+package cn.alandelip.entity;
 
 import lombok.Data;
 

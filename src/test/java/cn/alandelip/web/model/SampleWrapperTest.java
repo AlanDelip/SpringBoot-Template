@@ -1,7 +1,7 @@
-package cn.alandelip.web.data;
+package cn.alandelip.web.model;
 
-import cn.alandelip.model.SampleData;
-import cn.alandelip.web.data.wrapper.SampleWrapper;
+import cn.alandelip.entity.SampleData;
+import cn.alandelip.web.model.wrapper.SampleWrapper;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

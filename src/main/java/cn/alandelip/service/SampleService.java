@@ -1,7 +1,6 @@
 package cn.alandelip.service;
 
-import cn.alandelip.model.SampleData;
-import cn.alandelip.web.data.SampleVO;
+import cn.alandelip.entity.SampleData;
 
 import java.util.List;
 

@@ -1,8 +1,7 @@
-package cn.alandelip.web.data.wrapper;
+package cn.alandelip.web.model.wrapper;
 
-import cn.alandelip.model.SampleData;
-import cn.alandelip.web.data.SampleVO;
-import com.fasterxml.jackson.annotation.JsonInclude;
+import cn.alandelip.entity.SampleData;
+import cn.alandelip.web.model.SampleVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 

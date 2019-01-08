@@ -1,0 +1,49 @@
+{
+  "properties": [
+    {
+      "name": "swagger.title",
+      "type": "java.lang.String",
+      "description": "Description for swagger.title."
+    },
+    {
+      "name": "swagger.api-version",
+      "type": "java.lang.String",
+      "description": "Description for swagger.api-version."
+    },
+    {
+      "name": "swagger.description",
+      "type": "java.lang.String",
+      "description": "Description for swagger.description."
+    },
+    {
+      "name": "swagger.license",
+      "type": "java.lang.String",
+      "description": "Description for swagger.license."
+    },
+    {
+      "name": "swagger.license-url",
+      "type": "java.lang.String",
+      "description": "Description for swagger.license-url."
+    },
+    {
+      "name": "swagger.contact.name",
+      "type": "java.lang.String",
+      "description": "Description for swagger.contact.name."
+    },
+    {
+      "name": "swagger.contact.homepage",
+      "type": "java.lang.String",
+      "description": "Description for swagger.contact.homepage."
+    },
+    {
+      "name": "swagger.contact.email",
+      "type": "java.lang.String",
+      "description": "Description for swagger.contact.email."
+    },
+    {
+      "name": "springfox.documentation.swagger.v2.path",
+      "type": "java.lang.String",
+      "description": "Description for springfox.documentation.swagger.v2.path."
+    }
+  ]
+}
