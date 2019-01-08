@@ -1,8 +1,8 @@
 package cn.alandelip.logic;
 
 import cn.alandelip.entity.SampleData;
+import cn.alandelip.exception.InternalServerException;
 import cn.alandelip.service.SampleService;
-import cn.alandelip.web.model.OperationStatus;
 import cn.alandelip.web.model.SampleVO;
 import cn.alandelip.web.model.wrapper.SampleWrapper;
 import cn.alandelip.exception.NotFoundException;
@@ -44,16 +44,16 @@ public class SampleLogicTest {
 
 	@Test
 	public void testGetSampleData() {
-		//没有找到实例
+		//no entity is found
 		when(sampleService.getSample(1))
 				.thenReturn(null);
 		try {
 			sampleLogic.getSampleData(1);
 		} catch (NotFoundException e) {
-			assertEquals("没有找到Sample", e.getMessage());
+			assertEquals("sample not found", e.getMessage());
 		}
 
-		//找到实例
+		//entity found
 		SampleData sampleData = new SampleData();
 		sampleData.setId(2);
 		when(sampleService.getSample(2))
@@ -69,68 +69,58 @@ public class SampleLogicTest {
 
 	@Test
 	public void testSave() {
-		//save失败
+		//save fails
 		when(sampleService.save("fail", "fail"))
 				.thenReturn(false);
-		sampleLogic.save("fail", "fail");
-//        assertEquals("failure", failStatus.getStatus());
-
-		//save成功
-		when(sampleService.save("success", "success"))
-				.thenReturn(true);
-		sampleLogic.save("success", "success");
-//        assertEquals("success", successStatus.getStatus());
+		try {
+			sampleLogic.save("fail", "fail");
+		} catch (InternalServerException e) {
+			assertEquals("save fails", e.getMessage());
+		}
 	}
 
 	@Test
 	public void testPut() {
-		//没有找到Sample
+		//no sample is found
 		when(sampleService.getSample(1))
 				.thenReturn(null);
 		try {
 			sampleLogic.put(1, "fail", "fail");
 		} catch (NotFoundException e) {
-			assertEquals("没有找到Sample", e.getMessage());
+			assertEquals("sample not found", e.getMessage());
 		}
 
-		//没有修改成功
+		//modify fails
 		when(sampleService.put(2, "fail", "fail"))
 				.thenReturn(false);
 		mockGetSample(2);
-		sampleLogic.put(2, "fail", "fail");
-//        assertEquals("failure", failStatus.getStatus());
-
-		//修改成功
-		when(sampleService.put(2, "success", "success"))
-				.thenReturn(true);
-		sampleLogic.put(2, "success", "success");
-//        assertEquals("success", successStatus.getStatus());
+		try {
+			sampleLogic.put(2, "fail", "fail");
+		} catch (InternalServerException e) {
+			assertEquals("modify fails", e.getMessage());
+		}
 	}
 
 	@Test
 	public void testDelete() {
-		//没有找到Sample
+		//no sample is found
 		when(sampleService.getSample(1))
 				.thenReturn(null);
 		try {
 			sampleLogic.delete(1);
 		} catch (NotFoundException e) {
-			assertEquals("没有找到Sample", e.getMessage());
+			assertEquals("sample not found", e.getMessage());
 		}
 
-		//删除失败
+		//delete fails
 		when(sampleService.delete(2))
 				.thenReturn(false);
 		mockGetSample(2);
-		sampleLogic.delete(2);
-//		assertEquals("failure", failStatus.getStatus());
-
-		//删除成功
-		when(sampleService.delete(3))
-				.thenReturn(true);
-		mockGetSample(3);
-		sampleLogic.delete(3);
-//		assertEquals("success", successStatus.getStatus());
+		try {
+			sampleLogic.delete(2);
+		} catch (InternalServerException e) {
+			assertEquals("delete fails", e.getMessage());
+		}
 	}
 
 	private void mockGetSample(long id) {

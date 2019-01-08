@@ -3,6 +3,7 @@ package cn.alandelip.service.impl;
 import cn.alandelip.entity.SampleData;
 import cn.alandelip.repository.SampleDao;
 import cn.alandelip.service.SampleService;
+import com.google.gson.Gson;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ public class SampleServiceImpl implements SampleService {
 
 	@Override
 	public SampleData getSample(long id) {
-		return sampleDao.findById(id).orElse(null);
+		return sampleDao.getOne(id);
 	}
 
 	@Override
@@ -38,7 +39,7 @@ public class SampleServiceImpl implements SampleService {
 
 	@Override
 	public Boolean put(long id, String name, String detail) {
-		SampleData sampleData = sampleDao.findById(id).orElse(null);
+		SampleData sampleData = sampleDao.getOne(id);
 		if (sampleData != null) {
 			sampleData.setName(name);
 			sampleData.setDetail(detail);

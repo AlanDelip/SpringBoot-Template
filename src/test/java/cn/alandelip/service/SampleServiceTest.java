@@ -1,7 +1,7 @@
 package cn.alandelip.service;
 
-import cn.alandelip.repository.SampleDao;
 import cn.alandelip.entity.SampleData;
+import cn.alandelip.repository.SampleDao;
 import cn.alandelip.service.impl.SampleServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,14 +39,14 @@ public class SampleServiceTest {
 	@Test
 	public void testGetSample() {
 		//sample not found
-		when(sampleDao.findById(Long.valueOf("1")))
+		when(sampleDao.getOne(Long.valueOf("1")))
 				.thenReturn(null);
 		assertNull(sampleService.getSample(1));
 
 		//sample not found
 		SampleData sampleData = new SampleData();
 		sampleData.setId(1);
-		when(sampleDao.findById(Long.valueOf("2")).orElse(null))
+		when(sampleDao.getOne(Long.valueOf("2")))
 				.thenReturn(sampleData);
 		assertEquals(sampleData.getId(), sampleService.getSample(2).getId());
 	}
@@ -69,13 +69,13 @@ public class SampleServiceTest {
 
 		//modify fail
 		SampleData failData = new SampleData();
-		when(sampleDao.findById(Long.valueOf("2")).orElse(null))
+		when(sampleDao.getOne(Long.valueOf("2")))
 				.thenReturn(failData);
 		assertFalse(sampleService.put(2, "fail", "fail"));
 
 		//modify success
 		SampleData successData = new SampleData();
-		when(sampleDao.findById(Long.valueOf("3")).orElse(null))
+		when(sampleDao.getOne(Long.valueOf("3")))
 				.thenReturn(successData);
 		when(sampleDao.save(successData))
 				.thenReturn(new SampleData());

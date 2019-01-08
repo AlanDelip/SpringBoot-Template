@@ -13,12 +13,12 @@ import static org.junit.Assert.assertNull;
 public class SampleWrapperTest {
 	@Test
 	public void testWrap() {
-		//输入为null
+		//null input
 		SampleWrapper sampleWrapper = new SampleWrapper();
 		SampleVO nullSample = sampleWrapper.wrap(null);
 		assertNull(nullSample);
 
-		//输入不为空
+		//valid input
 		SampleData sampleData = new SampleData();
 		sampleData.setId(1);
 		SampleVO sampleVO = sampleWrapper.wrap(sampleData);

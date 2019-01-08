@@ -1,11 +1,11 @@
 # SpringBoot Template <img style="float:right;width:100px;padding-top:35px" src="https://img.shields.io/npm/l/vux.svg?style=flat-square" alt="">
 
-[Project Plan](##Project Plan)&nbsp;&nbsp;l&nbsp; 
-[Dependencies](##Dependencies)&nbsp;&nbsp;l&nbsp; 
-[Features](##Features)&nbsp;&nbsp;l&nbsp; 
-[Configurations](##Configurations)&nbsp;&nbsp;l&nbsp; 
-[Package architecture](##Package Architecture)&nbsp;&nbsp;l&nbsp; 
-[Keep In Touch](##Keep In Touch)&nbsp;&nbsp;l&nbsp; 
+[Project Plan](#project-plan)&nbsp;&nbsp;l&nbsp; 
+[Dependencies](#dependencies)&nbsp;&nbsp;l&nbsp; 
+[Features](#features)&nbsp;&nbsp;l&nbsp; 
+[Configurations](#configurations)&nbsp;&nbsp;l&nbsp; 
+[Package Architecture](#package-architecture)&nbsp;&nbsp;l&nbsp; 
+[Keep In Touch](#keep-in-touch)&nbsp;&nbsp;l&nbsp; 
 [中文版](README-ZH.md) 
 
 This project is a springboot template designed for: 
@@ -53,7 +53,7 @@ management and authentication features.
 ![sonar management](http://mooctest.oss-cn-shanghai.aliyuncs.com/resources/springboot-tmpl/sonar-management.png)
 
 ## Configurations
-> * marks for compulsory configurations, and the others are optional
+> *marks for compulsory configurations, and the others are optional
 
 - \* create database *sample*, and modify username and password in *resources/application.yaml*
 

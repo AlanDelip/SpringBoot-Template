@@ -53,7 +53,7 @@ public class SampleLogicImpl implements SampleLogic {
 			throw new NotFoundException("sample not exist");
 		}
 		if (!sampleService.put(id, name, detail)) {
-			throw new InternalServerException("modification fails");
+			throw new InternalServerException("modify fails");
 		}
 	}
 
@@ -63,7 +63,7 @@ public class SampleLogicImpl implements SampleLogic {
 			throw new NotFoundException("sample not exist");
 		}
 		if (!sampleService.delete(id)) {
-			throw new InternalServerException("deletion fails");
+			throw new InternalServerException("delete fails");
 		}
 	}
 

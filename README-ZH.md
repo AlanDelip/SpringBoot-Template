@@ -1,11 +1,11 @@
 # SpringBoot Template <img style="float:right;width:100px;padding-top:35px" src="https://img.shields.io/npm/l/vux.svg?style=flat-square" alt="">
 
-[项目计划](##2019项目计划)&nbsp;&nbsp;l&nbsp; 
-[主要依赖](##主要依赖)&nbsp;&nbsp;l&nbsp; 
-[特性](##特性)&nbsp;&nbsp;l&nbsp; 
-[配置](##配置)&nbsp;&nbsp;l&nbsp; 
-[包结构解析](##包结构解析)&nbsp;&nbsp;l&nbsp; 
-[保持联系](##保持联系)&nbsp;&nbsp;l&nbsp; 
+[项目计划](#2019项目计划)&nbsp;&nbsp;l&nbsp; 
+[主要依赖](#主要依赖)&nbsp;&nbsp;l&nbsp; 
+[特性](#特性)&nbsp;&nbsp;l&nbsp; 
+[配置](#配置)&nbsp;&nbsp;l&nbsp; 
+[包结构解析](#包结构解析)&nbsp;&nbsp;l&nbsp; 
+[保持联系](#保持联系)&nbsp;&nbsp;l&nbsp; 
 [English Version](README.md)
 
 这是一个专门为**Web相关大作业**，**外包项目后端**和**个人网站后端**而设计的Springboot模版。
@@ -45,7 +45,8 @@
 > *为必须配置，其余可选
 - \* 创建*sample*数据库，或者在*resources/application.yaml*文件中修改数据库名称以及登录用户名和密码
 - 下载Sonar本地服务器，由于是依赖Maven进行Sonar质量检测，请在*./m2/settings.xml*中进行Sonar的相关配置（如不使用Sonar可不进行配置）。在tool文件夹内有编写好的shell脚本帮助运行sonar指令。更多的Sonar配置请访问[Sonar官网](https://www.sonarqube.org/)
-- 在相关标注的说明下Swagger会自动生成HTTP API的网页，对于Swagger的默认配置在*configure/SwagConfig.java*中（不进行配置也可使用Swagger的特性）。运行服务器后默认在localhost:8080/swagger-ui.html会有API的界面。更多配置选项请关注[Swagger官网](http://swagger.io/)
+- 在相关标注的说明下Swagger会自动生成HTTP API的网页，对于Swagger的默认配置在*configure/SwagConfig.java*中（不进行配置也可使用Swagger的特性）。
+运行服务器后默认在*localhost:8080/swagger-ui.html*会有API的界面。更多配置选项请关注[Swagger官网](http://swagger.io/)
 
 ## 包结构解析
 > 基于IoC框架的[贫血模型](https://martinfowler.com/bliki/AnemicDomainModel.html)，对服务进行解耦，适用于团队协作。\
