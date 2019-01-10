@@ -59,8 +59,7 @@ management and authentication features.
 
 - \* if you're using IDE like Eclipse and IntelliJ, lombok plugin is needed for *@Data* and related annotations
 
-- download Sonar local server. Please configure maven setting in *./m2/settings.xml* for Sonar because it's based 
-on it. Also, there's a shell script helping run sonar operations in *tool* directory. 
+- download Sonar local server. There's a shell script helping run sonar operations in *tool/sonar.sh*. 
 For more info, please visit [Sonar Website](https://www.sonarqube.org/)
 
 - HTTP API management website will be automatically generated with Swagger annotation.  
