@@ -15,6 +15,7 @@ services:
       - type: bind
         source: ./
         target: /root/springboot-template
+    restart: on-failure
     links:
       - database
       - sonarqube
@@ -35,6 +36,7 @@ services:
 
   sonarqube:
     image: sonarqube
+    restart: on-failure
     ports:
       - 9000:9000
     volumes:
