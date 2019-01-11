@@ -1,0 +1,10 @@
+# create your custom drupal image here, based of official drupal
+FROM maven:3.6.0-jdk-8-alpine
+
+VOLUME /root/.m2
+
+WORKDIR /root/springboot-template
+
+EXPOSE 8080
+
+CMD sh tool/start-server.sh -m container -p container

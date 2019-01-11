@@ -57,3 +57,18 @@ server:
 
 spring.jpa.show-sql: false
 springfox.documentation.swagger.v2.path: /api-docs
+
+
+---
+spring:
+  profiles: container
+  datasource:
+    url: jdbc:mysql://database:3306/sample
+    username: container
+    password: container
+
+server:
+  port: 8080
+
+spring.jpa.show-sql: false
+springfox.documentation.swagger.v2.path: /api-docs
