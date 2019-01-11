@@ -34,7 +34,7 @@ swagger:
 spring:
   profiles: dev
   datasource:
-    url: jdbc:mysql://localhost:3306/sample?useSSL=false
+    url: jdbc:mysql://localhost:3306/sample?useSSL=false&allowPublicKeyRetrieval=true
     username: local
     password: local
 
@@ -63,7 +63,7 @@ springfox.documentation.swagger.v2.path: /api-docs
 spring:
   profiles: container
   datasource:
-    url: jdbc:mysql://database:3306/sample
+    url: jdbc:mysql://database:3306/sample?useSSL=false&allowPublicKeyRetrieval=true
     username: container
     password: container
 

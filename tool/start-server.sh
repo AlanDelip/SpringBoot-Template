@@ -1,7 +1,9 @@
 #!/bin/sh
+# default settings
 profile='dev'
 mode='silent'
 
+# extract param from instructions
 while getopts "p:m:" OPT
 do
     case $OPT in
@@ -14,10 +16,11 @@ do
     esac
 done
 
+# maven clean & package
 mvn clean
 mvn package
 
-##deploy
+# deploy
 if [ $mode == 'silent' ]; then
     java -jar -Dspring.profiles.active=$profile target/SpringBootTmpl-LATEST.jar > run.log &
 
@@ -34,5 +37,5 @@ elif [ $mode == 'container' ]; then
     echo Database Connected!;
 
     # run the built springboot project
-    java -jar -Dspring.profiles.active=$profile target/SpringBootTmpl-LATEST.jar > run.log &
+    java -jar -Dspring.profiles.active=$profile target/SpringBootTmpl-LATEST.jar
 fi

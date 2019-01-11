@@ -8,6 +8,7 @@ services:
     image: springboot
     ports:
       - 8080:8080
+    restart: on-failure
     volumes:
       - type: volume
         source: maven-repo
@@ -15,7 +16,6 @@ services:
       - type: bind
         source: ./
         target: /root/springboot-template
-    restart: on-failure
     links:
       - database
       - sonarqube
@@ -36,9 +36,9 @@ services:
 
   sonarqube:
     image: sonarqube
-    restart: on-failure
     ports:
       - 9000:9000
+    restart: on-failure
     volumes:
       - sonar-config:/opt/sonarqube/conf
       - sonar-data:/opt/sonarqube/data
