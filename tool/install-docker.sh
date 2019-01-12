@@ -38,7 +38,7 @@ elif [ $os == 'ubuntu' ]; then
     sudo apt-key fingerprint 0EBFCD88
 
     sudo add-apt-repository \
-    "deb [arch=amd64] https://download.docker.com/linux/debian \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) \
     stable"
 
@@ -61,7 +61,7 @@ elif [ $os == 'debian' ]; then
     sudo apt-key fingerprint 0EBFCD88
 
     sudo add-apt-repository \
-    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    "deb [arch=amd64] https://download.docker.com/linux/debian \
     $(lsb_release -cs) \
     stable"
 
