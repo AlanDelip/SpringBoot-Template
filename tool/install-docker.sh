@@ -3,10 +3,10 @@
 os='centos'
 
 # extract param from instructions
-while getopts "os:" OPT
+while getopts "o:" OPT
 do
     case $OPT in
-        os)
+        o)
             os=$OPTARG
             ;;
     esac
