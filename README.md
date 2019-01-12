@@ -8,6 +8,9 @@
 [Keep In Touch](#keep-in-touch)&nbsp;&nbsp;l&nbsp; 
 [中文版](README-ZH.md) 
 
+## Check Out Docker Features!
+
+## Why & What & How
 This project is a springboot template designed for: 
 - **web related homework** 
 - **outsourcing backend**
@@ -27,7 +30,7 @@ management and authentication features.
 ## Project Plan
 | #   |                      Content                     | Estimated Time |
 |:---:|:------------------------------------------------:|:--------------:|
-| 1   | add docker for automatic build on a Linux server |    01/20/19    |
+| 1   | add docker for automatic build on a Linux server |:heavy_check_mark:|
 | 2   |              add support for GraphQL             |    01/31/19    |
 | 3   |                add support for AOP               |       TBD      |
 | 4   |        add support for user authentication       |       TBD      |
