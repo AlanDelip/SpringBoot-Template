@@ -9,13 +9,11 @@
 [中文版](README-ZH.md) 
 
 ## :tada::tada::tada: Check Out Docker Features!
-Docker features have been integrated into the helper scripts. With this feature, once you get a server: 
+Docker features have been integrated into the helper scripts. With this feature, once you get a CentOS server: 
 
 **ALL YOU NEED TO DO: install git, clone this project and run the following script:**
 ```
-cd SpringBoot-Template &&
-bash tool/install-docker.sh -o ${YOUR_OS} && 
-bash tool/start-docker.sh
+cd SpringBoot-Template && bash tool/install-docker.sh -o centos && bash tool/start-docker.sh
 ```
 
 Helper scripts will help you install docker and docker will help you install all dependencies, including 
@@ -69,17 +67,32 @@ Alan. Zhufeng Xu, 03/14/17.
     **ALL YOU NEED TO DO:** 
     - install git
     - clone this project 
-    - run the following script
+    - run the following script (and every feature below will be automatically installed and configured)
         ```
-        cd SpringBoot-Template &&
-        bash tool/install-docker.sh -o ${YOUR_OS} && 
-        bash tool/start-docker.sh
+        cd SpringBoot-Template && bash tool/install-docker.sh -o ${YOUR_OS} && bash tool/start-docker.sh [-m <mode>]
         ```
+        Replace *${YOUR_OS}* and optionally change the mode of running the docker container.
+        
         *${YOUR_OS}: centos / ubuntu / debian*
         > currently, *CentOS 7 x86_64*, *Debian GNU/Linux 9 amd64*, *Ubuntu 18.04 LTS amd64* are supported.
-    
-    Every feature below will be automatically configured. 
-
+        
+        *-m: normal(default, logs on screen) / silent(running in background, no logs on screen)*
+        
+        it's an extra parameter for start-docker.sh, if you don't want to see the logs, you can use:
+        ```
+        bash tool/start-docker.sh -m silent
+        ```
+        
+    - Furthermore, SonarQube is automatically up in the 9000 port. If you want to analyze the project for code quality,
+      you can use:
+      
+      ```
+      bash tool/docker-sonar-analyze.sh [-m <mode>]
+      ```
+      *-m:  normal(default, logs on screen) <br>
+      silent(running in background, no logs on screen) <br>
+      interactive(bash into springboot container, set for docker developers)*
+     
 - Features including receiving requests, redirecting logic, dependency injection, user authentication, aspect oriented programming(AOP),
  object relation mapping(ORM), data IO, and etc. 
  

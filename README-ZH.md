@@ -11,11 +11,9 @@
 ## :tada::tada::tada: Docker特性上线！
 Docker特性已经集成进shell脚本中。新特性帮助你更快的建立服务器。
 
-当你有一台服务器时，**你只要：安装Git，Clone这个项目，运行下面的脚本：**
+当你有一台CentOS服务器时，**你只要：安装Git，Clone这个项目，运行下面的脚本：**
 ```
-cd SpringBoot-Template &&
-bash tool/install-docker.sh -o ${你的操作系统} && 
-bash tool/start-docker.sh
+cd SpringBoot-Template && bash tool/install-docker.sh -o centos && bash tool/start-docker.sh
 ```
 脚本会帮你安装docker，docker-compose，而docker会帮你配置好所有的依赖，包括*Maven*，*JDK*，*MySQL*和*SonarQube*。
 [查看详情](#特性)。
@@ -56,17 +54,30 @@ Alan. Zhufeng Xu, 03/14/17.
     当你有一台服务器时，**你只要：**
     - 安装Git
     - Clone这个项目 
-    - 运行下面的脚本
+    - 运行下面的脚本（接下来的所有特性和依赖都会自动配置）
         ```
-        cd SpringBoot-Template &&
-        bash tool/install-docker.sh -o ${你的操作系统} && 
-        bash tool/start-docker.sh
+        cd SpringBoot-Template && bash tool/install-docker.sh -o ${你的操作系统} && bash tool/start-docker.sh
         ```
+        替换*${你的操作系统}*，也可以设置运行Docker的方式。
+        
         *${你的操作系统}: centos / ubuntu / debian*
         > 目前支持*CentOS 7 x86_64*, *Debian GNU/Linux 9 amd64*, *Ubuntu 18.04 LTS amd64*。
-    
-    接下来的所有特性和依赖都会自动配置。
-     
+        
+        *-m: normal（默认，输出日志到屏幕） / silent(后台运行，不输出日志)*
+        
+        这是start-docker.sh的一个额外参数，如果你不想看日志输出的话，你可以用：    
+         ```
+         bash tool/start-docker.sh -m silent
+         ```
+            
+    - 此外, SonarQube会自动启动在9000端口。如果你想分析项目的代码质量，你可以用：
+      ```
+      bash tool/docker-sonar-analyze.sh [-m <mode>]
+      ```
+      *-m:  normal（默认, 输出日志到屏幕） <br>
+      silent（后台运行，不输出日志） <br>
+      interactive（用bash登录到springboot的容器内，为docker开发者设计）*
+         
 - 请求接收，逻辑转发，依赖注入，用户验证，切面，对象映射，数据读写等主流功能
 
 - 具体的使用样例，以示例代码的形式展示
