@@ -7,7 +7,7 @@ while getopts "os:" OPT
 do
     case $OPT in
         os)
-            mode=$OPTARG
+            os=$OPTARG
             ;;
     esac
 done
