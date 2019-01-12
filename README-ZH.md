@@ -1,48 +1,98 @@
 # SpringBoot Template <img style="float:right;width:100px;padding-top:35px" src="https://img.shields.io/npm/l/vux.svg?style=flat-square" alt="">
 
 [项目计划](#2019项目计划)&nbsp;&nbsp;l&nbsp; 
-[主要依赖](#主要依赖)&nbsp;&nbsp;l&nbsp; 
 [特性](#特性)&nbsp;&nbsp;l&nbsp; 
+[主要依赖](#主要依赖)&nbsp;&nbsp;l&nbsp; 
 [配置](#配置)&nbsp;&nbsp;l&nbsp; 
 [包结构解析](#包结构解析)&nbsp;&nbsp;l&nbsp; 
 [保持联系](#保持联系)&nbsp;&nbsp;l&nbsp; 
 [English Version](README.md)
+
+## :tada::tada::tada: Docker特性上线！
+Docker特性已经集成进shell脚本中。新特性帮助你更快的建立服务器。
+
+当你有一台服务器时，**你只要：安装Git，Clone这个项目，运行下面的脚本：**
+```
+cd SpringBoot-Template &&
+bash tool/install-docker.sh -o ${你的操作系统} && 
+bash tool/start-docker.sh
+```
+脚本会帮你安装docker，docker-compose，而docker会帮你配置好所有的依赖，包括*Maven*，*JDK*，*MySQL*和*SonarQube*。
+[查看详情](#特性)。
+
+## 这是什么项目？为什么要用？ 
+对于CS学生，外包项目经理，或是个人开发者而言，配置项目始终是令人头疼的一件事情，即便你在用Springboot这样旨在简化配置的框架。
+
+去阅读官方的教程和文档是一个绝佳的选择，但是那些文档太过详细，详细到包含了很多你根本不需要学习的东西。
+
+这种场景下，我们实际需要的是一个，有基本代码分包结构的、有基础配置的、有常用功能特性、最好有部分示例代码（数据库，跨域配置等代码）的模版。
+
+这就是**SpringBoot-Template**：
 
 这是一个专门为**Web相关大作业**，**外包项目后端**和**个人网站后端**而设计的Springboot模版。
 包含一套可以立即使用的**标准架构**和**配置**，还包含一组**实际代码示例**。
 
 > 2017年 - 2018年间，我在南京大学的[ise实验室](http://www.iselab.cn/)工作了8个月，有了很多后端的实践。
 一直想整理一套理想的后端即clone即用的模版，轻松的应对各种大作业。
-这套SpringBoot的模版也在不断的完善当中，从初始的简单框架逐渐加入了更多的管理和运维工具。
+这套SpringBoot的模版也在不断的完善当中，从初始的简单框架逐渐加入了更多的管理和运维工具。\
+\
+Alan. Zhufeng Xu, 03/14/17.
 
 ## 2019项目计划
 |   #编号  	|         计划内容         	| 预计时间 	|
 |:---------:|:-------------------------:|:---------:|
-|   1   	| 添加Docker自动化构建过程 	| 01/20/19 	|
+|   1   	| 添加Docker自动化构建过程 	| :heavy_check_mark:	|
 |   2   	|      添加GraphQL支持     	| 01/31/19 	|
 |   3   	|      添加AOP切面支持    	|    TBD   	|
 |   4   	|      添加用户验证支持 	    |    TBD   	|
 |   5   	|   添加Springboot2新特性   	|    TBD   	|
 
-## 主要依赖
-- 服务框架 - [SpringBoot:2.1.1](http://projects.spring.io/spring-boot/)
-- 数据库 - [MySQL:8.0.11](https://www.mysql.com/)
-- 测试 - [Mockito:1.8.4](http://site.mockito.org/)
-- API管理 - [Swagger:2.4.0](http://swagger.io/)
-- 代码质量 - [SonarQube](https://www.sonarqube.org/)
 
 ## 特性
+- **新特性：用Docker更快的搭建服务**
+
+    Docker特性已经集成进shell脚本中。新特性帮助你更快的建立服务器。
+    
+    当你有一台服务器时，**你只要：**
+    - 安装Git
+    - Clone这个项目 
+    - 运行下面的脚本
+        ```
+        cd SpringBoot-Template &&
+        bash tool/install-docker.sh -o ${你的操作系统} && 
+        bash tool/start-docker.sh
+        ```
+        *${你的操作系统}: centos / ubuntu / debian*
+        > 目前支持*CentOS 7 x86_64*, *Debian GNU/Linux 9 amd64*, *Ubuntu 18.04 LTS amd64*。
+    
+    接下来的所有特性和依赖都会自动配置。
+     
 - 请求接收，逻辑转发，依赖注入，用户验证，切面，对象映射，数据读写等主流功能
+
 - 具体的使用样例，以示例代码的形式展示
+
 - 详细的单元测试，接口测试，集成测试
+
 - Swagger2 HTTP API管理（默认启动服务器后在8080端口的/swagger-ui.html访问）
 ![swagger](https://c1.staticflickr.com/5/4915/31726275207_42bb23af9c_h.jpg)
 
 - Sonar代码质量监测（默认启动Sonar本地服务器后在9000端口访问）
 ![sonar management](http://mooctest.oss-cn-shanghai.aliyuncs.com/resources/springboot-tmpl/sonar-management.png)
 
+## 主要依赖
+> 如果你在使用Docker特性，你可以直接跳过这里，因为所有的依赖都会被自动安装:smirk:。
+- 编译器 - [JDK:8+](https://www.java.com/)
+- 依赖管理 - [Maven:3+](https://maven.apache.org/download.cgi)
+- 服务框架 - [SpringBoot:2.1.1](http://projects.spring.io/spring-boot/)
+- 数据库 - [MySQL:8.0.11](https://www.mysql.com/)
+- 测试 - [Mockito:1.8.4](http://site.mockito.org/)
+- API管理 - [Swagger:2.4.0](http://swagger.io/)
+- 代码质量 - [SonarQube](https://www.sonarqube.org/)
+
 ## 配置
-> *为必须配置，其余可选
+> 如果你在使用Docker特性，你可以直接跳过这里，因为所有配置都会被自动设置:smirk:。
+
+> \* 为必须配置，其余可选
 - \* 创建*sample*数据库，或者在*resources/application.yaml*文件中修改数据库名称以及登录用户名和密码
 - \* 如果你在使用IntelliJ或者Eclipse等IDE的话，需要安装Lombok插件来保证 *@Data* 以及相关标注的运行
 - 下载Sonar本地服务器，*tool/sonar.sh*中有编写好的shell脚本帮助运行sonar指令。更多的Sonar配置请访问[Sonar官网](https://www.sonarqube.org/)

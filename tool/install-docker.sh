@@ -34,6 +34,7 @@ elif [ $os == 'ubuntu' ]; then
     software-properties-common
 
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
     sudo apt-key fingerprint 0EBFCD88
 
     sudo add-apt-repository \
@@ -42,6 +43,7 @@ elif [ $os == 'ubuntu' ]; then
     stable"
 
     sudo apt-get update
+
     sudo apt-get install docker-ce
 
 elif [ $os == 'debian' ]; then
@@ -55,6 +57,7 @@ elif [ $os == 'debian' ]; then
     software-properties-common
 
     curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+
     sudo apt-key fingerprint 0EBFCD88
 
     sudo add-apt-repository \
@@ -63,6 +66,7 @@ elif [ $os == 'debian' ]; then
     stable"
 
     sudo apt-get update
+
     sudo apt-get install docker-ce
 
 fi

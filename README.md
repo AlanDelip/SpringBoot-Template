@@ -1,17 +1,40 @@
 # SpringBoot Template <img style="float:right;width:100px;padding-top:35px" src="https://img.shields.io/npm/l/vux.svg?style=flat-square" alt="">
 
 [Project Plan](#project-plan)&nbsp;&nbsp;l&nbsp; 
-[Dependencies](#dependencies)&nbsp;&nbsp;l&nbsp; 
 [Features](#features)&nbsp;&nbsp;l&nbsp; 
-[Configurations](#configurations)&nbsp;&nbsp;l&nbsp; 
+[Dependencies](#dependencies)&nbsp;&nbsp;l&nbsp;  
+[Configurations](#configurations)&nbsp;&nbsp;l&nbsp;
 [Package Architecture](#package-architecture)&nbsp;&nbsp;l&nbsp; 
 [Keep In Touch](#keep-in-touch)&nbsp;&nbsp;l&nbsp; 
 [中文版](README-ZH.md) 
 
-## Check Out Docker Features!
+## :tada::tada::tada: Check Out Docker Features!
+Docker features have been integrated into the helper scripts. With this feature, once you get a server: 
+
+**ALL YOU NEED TO DO: install git, clone this project and run the following script:**
+```
+cd SpringBoot-Template &&
+bash tool/install-docker.sh -o ${YOUR_OS} && 
+bash tool/start-docker.sh
+```
+
+Helper scripts will help you install docker and docker will help you install all dependencies, including 
+*Maven*, *JDK*, *MySQL*, and *SonarQube*.
+[See Details](#features).
+
 
 ## Why & What & How
-This project is a springboot template designed for: 
+For a typical **CS student**, a **outsourcing manager** or a **personal developer**, it's always a nightmare to do the configuration work, even though you're using Springboot which aims at simplifying it.
+
+It's a perfect choice to read through the official tutorial and docs to get started. **However, the tutorial and docs 
+are just too detailed to work with.** 
+
+In this scenario, what we actually need is a template, equipped with basic structure, common configs, 
+and normal features, to start with immediately within minutes. It will be even better if several hints and examples, like 
+how to set up database connections and how to resolve CORS config, are provided.
+
+Here comes the **SpringBoot-Template**.
+It is designed for: 
 - **web related homework** 
 - **outsourcing backend**
 - **personal homepage backend**
@@ -25,38 +48,65 @@ The whole project consists of:
 I was absorbing numbers of backend practices along with real-world and top-notch skills.
 For a long time, I'm trying to build an ideal backend template to help easily handle web homework and here it is.
 This SprinBoot Template is refining and growing from a simple project to a fancy setup equipped with testing, 
-management and authentication features. 
+management and authentication features.\
+\
+Alan. Zhufeng Xu, 03/14/17.
 
 ## Project Plan
 | #   |                      Content                     | Estimated Time |
 |:---:|:------------------------------------------------:|:--------------:|
-| 1   | add docker for automatic build on a Linux server |:heavy_check_mark:|
+| 1   | add docker features for automatic build on a Linux server |:heavy_check_mark:|
 | 2   |              add support for GraphQL             |    01/31/19    |
 | 3   |                add support for AOP               |       TBD      |
 | 4   |        add support for user authentication       |       TBD      |
 | 5   |       add support for Springboot2 features       |       TBD      |
 
+## Features
+- **[NEW FEATURE] Build using Docker without Any Configuration**
+
+    Docker features have been integrated into the helper scripts. With this feature, 
+    once you get a server, 
+    **ALL YOU NEED TO DO:** 
+    - install git
+    - clone this project 
+    - run the following script
+        ```
+        cd SpringBoot-Template &&
+        bash tool/install-docker.sh -o ${YOUR_OS} && 
+        bash tool/start-docker.sh
+        ```
+        *${YOUR_OS}: centos / ubuntu / debian*
+        > currently, *CentOS 7 x86_64*, *Debian GNU/Linux 9 amd64*, *Ubuntu 18.04 LTS amd64* are supported.
+    
+    Every feature below will be automatically configured. 
+
+- Features including receiving requests, redirecting logic, dependency injection, user authentication, aspect oriented programming(AOP),
+ object relation mapping(ORM), data IO, and etc. 
+ 
+- Detailed code examples and comments
+
+- Unit testing, interface testing, and integration testing
+
+- Swagger2 HTTP API management(can be accessed at *localhost:8080/swagger-ui.html* in default)
+![swagger](https://c1.staticflickr.com/5/4915/31726275207_42bb23af9c_h.jpg)
+
+- Code quality with SonarQube(can be accessed at *localhost:9000* in default)
+![sonar management](http://mooctest.oss-cn-shanghai.aliyuncs.com/resources/springboot-tmpl/sonar-management.png)
+
 ## Dependencies
+> If you're using docker features, you can just skip this part, because no dependency is required to be installed manually :smirk:.
+- Compilation - [JDK:8+](https://www.java.com/)
+- Dependency Management - [Maven:3+](https://maven.apache.org/download.cgi)
 - Service Framework - [SpringBoot:2.1.1](http://projects.spring.io/spring-boot/)
 - Database - [MySQL:8.0.11](https://www.mysql.com/)
 - Testing - [Mockito:1.8.4](http://site.mockito.org/)
 - API Management - [Swagger:2.4.0](http://swagger.io/)
 - Code Quality - [SonarQube](https://www.sonarqube.org/)
 
-## Features
-- features including receiving requests, redirecting logic, dependency injection, user authentication, aspect oriented programming(AOP),
- object relation mapping(ORM), data IO, and etc. 
-- detailed code examples and comments
-- unit testing, interface testing, and integration testing
-
-- Swagger2 HTTP API management(can be accessed at localhost:8080/swagger-ui.html in default)
-![swagger](https://c1.staticflickr.com/5/4915/31726275207_42bb23af9c_h.jpg)
-
-- code quality with SonarQube(can be accessed at localhost:9000 in default)
-![sonar management](http://mooctest.oss-cn-shanghai.aliyuncs.com/resources/springboot-tmpl/sonar-management.png)
-
 ## Configurations
-> *marks for compulsory configurations, and the others are optional
+> If you're using docker features, you can just skip this part, because no configuration is needed :smirk:.
+
+> \* marks for compulsory configurations, and the others are optional
 
 - \* create database *sample*, and modify username and password in *resources/application.yaml*
 
