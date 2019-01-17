@@ -13,9 +13,9 @@ done
 docker-compose down
 
 if [ $mode == 'normal' ]; then
-    docker-compose up
+    sudo docker-compose up
 
 elif [ $mode == 'silent' ]; then
-    docker-compose up -d
+    sudo docker-compose up -d
 
 fi

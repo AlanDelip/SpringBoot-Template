@@ -11,11 +11,10 @@
 ## :tada::tada::tada: Docker特性上线！
 Docker特性已经集成进shell脚本中。新特性帮助你更快的建立服务器。
 
-当你有一台CentOS服务器时，**你只要：安装Git，Clone这个项目，运行下面的脚本：**
-```
-cd SpringBoot-Template && bash tool/install-docker.sh -o centos && bash tool/start-docker.sh
-```
-脚本会帮你安装docker，docker-compose，而docker会帮你配置好所有的依赖，包括*Maven*，*JDK*，*MySQL*和*SonarQube*。
+去[Interactive Springboot Template](https://project.alan-zhufengxu.com/interactive-springboot-template/)获取属于你服务器的脚本，
+在5分钟内完成部署！
+
+脚本会帮你安装所有的依赖，包括*Maven*，*JDK*，*MySQL*和*SonarQube*，并且运行你的项目。
 [查看详情](#特性)。
 
 ## 这是什么项目？为什么要用？ 

@@ -9,15 +9,12 @@
 [中文版](README-ZH.md) 
 
 ## :tada::tada::tada: Check Out Docker Features!
-Docker features have been integrated into the helper scripts. With this feature, once you get a CentOS server: 
+Docker features have been integrated into the helper scripts. 
 
-**ALL YOU NEED TO DO: install git, clone this project and run the following script:**
-```
-cd SpringBoot-Template && bash tool/install-docker.sh -o centos && bash tool/start-docker.sh
-```
+Go to [Interactive Springboot Template](https://project.alan-zhufengxu.com/interactive-springboot-template/), 
+get your installation script and get things done within 5 minutes. 
 
-Helper scripts will help you install docker and docker will help you install all dependencies, including 
-*Maven*, *JDK*, *MySQL*, and *SonarQube*.
+Helper scripts will help you install all the dependencies,  including *Maven*, *JDK*, *MySQL*, and *SonarQube*, and run your project.
 [See Details](#features).
 
 

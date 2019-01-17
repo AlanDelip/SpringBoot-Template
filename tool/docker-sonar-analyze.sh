@@ -12,12 +12,12 @@ do
 done
 
 if [ $mode == 'normal' ]; then
-    docker exec springboot-template_springboot_1 sh tool/sonar-analyze.sh -m container
+    sudo docker exec springboot-template_springboot_1 sh tool/sonar-analyze.sh -m container
 
 elif [ $mode == 'silent' ]; then
-    docker exec -d springboot-template_springboot_1 sh tool/sonar-analyze.sh -m container
+    sudo docker exec -d springboot-template_springboot_1 sh tool/sonar-analyze.sh -m container
 
 elif [ $mode == 'interactive' ]; then
-    docker exec -it springboot-template_springboot_1 bash
+    sudo docker exec -it springboot-template_springboot_1 bash
 
 fi
