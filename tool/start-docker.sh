@@ -10,7 +10,7 @@ do
     esac
 done
 
-docker-compose down
+sudo docker-compose down
 
 if [ $mode == 'normal' ]; then
     sudo docker-compose up

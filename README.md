@@ -12,7 +12,7 @@
 Docker features have been integrated into the helper scripts. 
 
 Go to [Interactive Springboot Template](https://project.alan-zhufengxu.com/interactive-springboot-template/), 
-get your installation script and get things done within 5 minutes. 
+get your installation script and get things done within 10 minutes. 
 
 Helper scripts will help you install all the dependencies,  including *Maven*, *JDK*, *MySQL*, and *SonarQube*, and run your project.
 [See Details](#features).

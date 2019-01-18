@@ -12,7 +12,7 @@
 Docker特性已经集成进shell脚本中。新特性帮助你更快的建立服务器。
 
 去[Interactive Springboot Template](https://project.alan-zhufengxu.com/interactive-springboot-template/)获取属于你服务器的脚本，
-在5分钟内完成部署！
+在10分钟内完成部署！
 
 脚本会帮你安装所有的依赖，包括*Maven*，*JDK*，*MySQL*和*SonarQube*，并且运行你的项目。
 [查看详情](#特性)。
