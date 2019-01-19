@@ -38,8 +38,8 @@ Alan. Zhufeng Xu, 03/14/17.
 ## 2019项目计划
 |   #编号  	|         计划内容         	| 预计时间 	|
 |:---------:|:-------------------------:|:---------:|
-|   1   	| 添加Docker自动化构建过程 	| :heavy_check_mark:	|
-|   2   	|      添加GraphQL支持     	| :heavy_check_mark: 	|
+|   1   	| [添加Docker自动化构建过程](#特性) 	| :heavy_check_mark:	|
+|   2   	| [添加GraphQL支持](https://github.com/AlanDelip/SpringBoot-Template/tree/feature-graphql)     	| :heavy_check_mark: 	|
 |   3   	|      添加AOP切面支持    	|    TBD   	|
 |   4   	|      添加用户验证支持 	    |    TBD   	|
 |   5   	|   添加Springboot2新特性   	|    TBD   	|
