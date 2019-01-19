@@ -51,7 +51,7 @@ Alan. Zhufeng Xu, 03/14/17.
 | #   |                      Content                     | Estimated Time |
 |:---:|:------------------------------------------------:|:--------------:|
 | 1   | add docker features for automatic build on a Linux server |:heavy_check_mark:|
-| 2   |              add support for GraphQL             |    01/31/19    |
+| 2   |              add support for GraphQL             |    :heavy_check_mark:    |
 | 3   |                add support for AOP               |       TBD      |
 | 4   |        add support for user authentication       |       TBD      |
 | 5   |       add support for Springboot2 features       |       TBD      |
