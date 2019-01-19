@@ -29,6 +29,20 @@ swagger:
     homepage: https://www.alan-zhufengxu.com
     email: alan.xuzhufeng@gmail.com
 
+graphql:
+  servlet:
+    mapping: /graphql
+    enabled: true
+    corsEnabled: true
+
+graphiql:
+  mapping: /graphiql
+  endpoint: /graphql
+  enabled: true
+  pageTitle: GraphiQL
+  cdn:
+    enabled: false
+    version: 0.11.11
 
 ---
 spring:

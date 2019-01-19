@@ -1,0 +1,15 @@
+type SampleData {
+    id: Long!
+    name: String!
+    detail: String!
+}
+
+type Query {
+    findSampleById(id: Long!): SampleData
+    findAllSamples: [SampleData!]
+}
+
+type Mutation {
+    createSample(name: String!, detail: String!): SampleData!
+    deleteSample(id: Long!): Boolean!
+}

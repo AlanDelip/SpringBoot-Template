@@ -87,6 +87,30 @@
             <version>1.16.20</version>
         </dependency>
 
+        <!--graphql-->
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-spring-boot-starter</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-tools</artifactId>
+            <version>5.1.0</version>
+        </dependency>
+        <!-- to embed GraphiQL tool -->
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphiql-spring-boot-starter</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+        <!-- to embed Voyager tool -->
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>voyager-spring-boot-starter</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+
         <!--metadata-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -96,6 +120,12 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources/*</directory>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
